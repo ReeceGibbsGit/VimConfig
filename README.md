@@ -27,9 +27,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 call plug#end()
 
-nnoremap <silent> <C-f> :Files<CR>
-nnoremap <silent> <Leader>f :Rg<CR>
-
 nnoremap <C-y> "+y
 vnoremap <C-y> "+y
 nnoremap <C-p> "+p
