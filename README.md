@@ -15,25 +15,29 @@ iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
 ## .vimrc
 
 ```
-set belloff=all
+set belloff=all " annoying windows notification off
 set hidden
 set nocp
+set grepprg=rg\ --vimgrep\ --smart-case\ --follow
+set relativenumber 
 
 filetype plugin on
-
-nnoremap <silent> <Leader>b :Buffers<CR>
-nnoremap <silent> <C-f> :Files<CR>
-nnoremap <silent> <Leader>f :Rg<CR>
-nnoremap <silent> <Leader>/ :BLines<CR>
-nnoremap <silent> <Leader>' :Marks<CR>
-nnoremap <silent> <Leader>g :Commits<CR>
-nnoremap <silent> <Leader>H :Helptags<CR>
-nnoremap <silent> <Leader>hh :History<CR>
-nnoremap <silent> <Leader>h: :History:<CR>
-nnoremap <silent> <Leader>h/ :History/<CR>
 
 call plug#begin()
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 call plug#end()
+
+" Copy and Paste to system register
+nnoremap <C-y> "+y
+vnoremap <C-y> "+y
+nnoremap <C-p> "+p
+vnoremap <C-p> "+p
+inoremap <C-p> <C-r>+
+
+" Soft line navigation
+nnoremap J gj
+vnoremap J gj
+nnoremap K gk
+vnoremap K gk
 ```
